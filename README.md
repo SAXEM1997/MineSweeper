@@ -1,4 +1,4 @@
-# MineSweeper(扫雷)
+﻿# MineSweeper(扫雷)
 ### Game MineSweeper on Java with version 1.0.0.
 
 ### 游戏界面(采用30*17网格布局)包括：
