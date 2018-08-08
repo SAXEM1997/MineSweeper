@@ -10,7 +10,7 @@ import javax.swing.*;
 
 public class Pane implements KeyListener
 {
-    JPanel panel;
+    private JPanel panel;
 
     private Block [][] pane;
 
@@ -25,10 +25,10 @@ public class Pane implements KeyListener
     private boolean enableMouseListener;
     private boolean ifFirstClick;
 
-    JTextField TimeRecord;
-    JTextField MineLeft;
-    Timer MyTimer;
-    File Records;
+    private JTextField TimeRecord;
+    private JTextField MineLeft;
+    private Timer MyTimer;
+    private File Records;
 
     public Pane(JFrame frame)
     {
@@ -235,9 +235,7 @@ public class Pane implements KeyListener
             if (pane[k][l].getState() == 2)
                 count++;
         }
-        if (count >= value)
-            return true;
-        return false;
+        return count >= value;
     }
 
     private void LeftClick(int i, int j)
@@ -253,6 +251,11 @@ public class Pane implements KeyListener
             }
             if (pane[i][j].getState() != 1)
             {
+                if (pane[i][j].getState() == 2)
+                {
+                    mineLeft++;
+                    MineLeft.setText(String.valueOf(mineLeft));
+                }
                 pane[i][j].setState(1);
                 blockLeft--;
                 if (blockLeft == MINENUMBER)
